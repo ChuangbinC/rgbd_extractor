@@ -1,7 +1,7 @@
 /*
  * @Author: Chuangbin Chen
  * @Date: 2019-11-06 20:52:59
- * @LastEditTime: 2019-11-07 01:43:02
+ * @LastEditTime: 2019-11-07 13:11:43
  * @LastEditors: Do not edit
  * @Description: 
  */
@@ -90,7 +90,7 @@ void ImageExtractor::KeyLoop()
 
     puts("Reading from keyboard");
     puts("---------------------------");
-    puts("Use arrow keys to move the turtle. 'q' to quit.");
+    puts("use the spacebar to capture images. 'q' to quit.");
 
     for (;;)
     {
@@ -129,8 +129,8 @@ void ImageExtractor::imageCallback(const cv_bridge::CvImage::ConstPtr &imgMsg)
         compressionQuality.push_back(CV_IMWRITE_PNG_COMPRESSION);
         stringstream ss;
         ss << rgbNum;
-        // rgbFileName = image_save_path + ss.str() + ".png";
-        rgbFileName = "/home/ccb/Code/image/rgb_" + ss.str() + ".png";
+        rgbFileName = image_save_path + "/rgb_"+ ss.str() + ".png";
+        // rgbFileName = "/home/ccb/Code/image/rgb_" + ss.str() + ".png";
 
         imwrite(rgbFileName, inImage, compressionQuality);
         cout << "write "
@@ -152,7 +152,7 @@ void ImageExtractor::depthCallback(const cv_bridge::CvImage::ConstPtr &depthMsg)
         stringstream ss;
         ss << depthNum;
         // depthFileName = image_save_path + ss.str() + ".png";
-        depthFileName = "/home/ccb/Code/image/depth_" + ss.str() + ".png";
+        depthFileName = image_save_path + "/depth_" + ss.str() + ".png";
 
         imwrite(depthFileName, depthImage, compressionQuality);
         cout << "write "
