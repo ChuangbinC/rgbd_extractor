@@ -1,0 +1,13 @@
+<launch>
+  <node name="rgbd_color_img" pkg="image_view" type="image_view">
+  <remap from="image" to="/camera/rgb/image_raw" />
+  </node>
+
+  <node name="rgbd_depth_img" pkg="image_view" type="image_view">
+  <remap from="image" to="/camera/depth/image_raw" />
+  </node>
+   <param name="image_save_path" value="/home/ccb/Code/image" type="str" />
+  <!-- <node name="rgbd_extractor" pkg="rgbd_extractor" type="image_extractor"> -->
+ 
+  <!-- </node> -->
+</launch>
