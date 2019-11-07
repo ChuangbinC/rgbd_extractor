@@ -1,2 +1,7 @@
-# rgbd_extractor
-Extract color image and depth image with ROS
+## How to use
++ Xtion Camera
+```
+roslaunch rgbd_extractor rgbd_extractor.launch
+
+rosrun rgbd_extractor image_extractor
+```
